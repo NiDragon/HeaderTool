@@ -1,6 +1,6 @@
 # HeaderTool - RTTR Bindings Generator for C++
 
-Purpose of this project is to parse C++ header files and Generate C++ reflection bindings for [LibRttr](link:https://www.rttr.org/doc/rttr-0-9-6/classes.html).
+Purpose of this project is to parse C++ header files and Generate C++ reflection bindings for [LibRttr](https://www.rttr.org/doc/rttr-0-9-6/classes.html).
 -
 This code is provided under the [MIT-License](LICENSE).
 ___
