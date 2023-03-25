@@ -23,9 +23,9 @@ This project was created for personal use I figured since I saw nothing on exist
 > * sudo apt install llvm
 > * sudo apt install cmake
 
-> cmake -B ./Build
-> cd Build
-> cmake --build . --config Release
+> * cmake -B ./Build
+> * cd Build
+> * cmake --build . --config Release
 
 ## Command Line Arguments
 ```
