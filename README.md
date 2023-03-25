@@ -61,8 +61,8 @@ public:
     std::string& GetVectorName();
 	
     // Access=Public is not necessary because all access defaults to Public other options are Private or Protected
-	FUNCTION(Description="Set Vector XYZ",DefaultArgs=[1.0f, 1.0f, 1.0f],Access=Public)
-	void SetXYZ(float x, float y, float z);
+    FUNCTION(Description="Set Vector XYZ",DefaultArgs=[1.0f, 1.0f, 1.0f],Access=Public)
+    void SetXYZ(float x, float y, float z);
 
     // This creates an accessor
     PROPERTY(Description="Vector3 X Component") 
