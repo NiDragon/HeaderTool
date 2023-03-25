@@ -52,10 +52,10 @@ This project was created for personal use I figured since I saw nothing on exist
 > Policy=Discard only applies to functions
 * DefaultArgs (Only applies to functions)
 
-### Usage:
+## Usage:
 > HeaderTool -f "Vector.h" -hotswap
 
-### Example: Vector.h
+## Example: Vector.h
 ```cpp
 // Define macros for reflection generation
 #define CLASS(...)
@@ -112,7 +112,7 @@ enum Direction
 }
 ```
 
-### Output: Vector.generated.h
+## Output: Vector.generated.h
 ```cpp
 #include <rttr/registration.h>
 
@@ -165,6 +165,6 @@ namespace _REFLECTION_VECTOR_GENERATED_H_ {
 #endif
 ```
 
-> ### Things that would be nice in the future:
-> * Constructor Access Support
-> * Constructor Binding Policy (eg. Create Raw Pointers of Types)
+## Things that would be nice in the future:
+* Constructor Access Support
+* Constructor Binding Policy (eg. Create Raw Pointers of Types)
