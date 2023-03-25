@@ -16,16 +16,17 @@ int main(int argc, char** argv)
 	// If we did not find a source file exit the program
 	if (!fs::exists(CmdParse.SourceFile))
 	{
-		cerr << "No file to parse." << endl;
+		cerr << "No file to parse. (For more info see -help)" << endl;
 		return GENERIC_FILE_ERROR;
 	}
 
 	// check if the file we were parse ends in .h does not matter if its hpp
-	size_t found = CmdParse.SourceFile.generic_string().find_last_of(".h");
+	string source_path = CmdParse.SourceFile.generic_string();
+	size_t found = source_path.find_last_of(".h");
 
 	if (found == string::npos) 
 	{
-		cerr << "File not a recognized header." << endl;
+		cerr << "File \"" << source_path << "\" not a recognized header." << endl;
 		return GENERIC_FILE_ERROR;
 	}
 

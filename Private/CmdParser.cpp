@@ -25,8 +25,18 @@ void CmdParser::ParseCommandLine() {
         {
             if (i + 1 < argc)
             {
-                SourceFile = MakeAbsolute(argv[i + 1]);
-                MakeAbsolutePath(SourceFile);
+				fs::path filepath = argv[i + 1];
+				
+				if(fs::exists(filepath)) 
+				{
+					SourceFile = MakeAbsolute(filepath);
+					MakeAbsolutePath(SourceFile);
+				}
+				else
+				{
+					if(!filepath.empty())
+						cerr << "Error: \"" << argv[i + 1] << "\" No such file found." << endl;
+				}
             }
         }
 
@@ -42,7 +52,7 @@ void CmdParser::ParseCommandLine() {
         {
             if (i + 1 < argc)
             {
-                Module = MakeAbsolute(argv[i + 1]);
+                Module = argv[i + 1];
                 UseClassPath = true;
             }
         }
@@ -88,17 +98,20 @@ void CmdParser::ParseCommandLine() {
 
         if (arg == "-help")
         {
-            cout << "RTTR HeaderTool (C) 2023 Illusionist Softworks" << endl << endl;
-            cout << "Supported Arguments: " << endl;
-            cout << tabchar << "-f <filename>       - Source filename to be parsed." << endl;
-            cout << tabchar << "-i <path>           - Include directory to resolve references." << endl;
-            cout << tabchar << "-m <module name>    - Module name for class path generation." << endl;
-            cout << tabchar << "-o <output path>    - Directory to write generated output to." << endl;
-            cout << tabchar << "-t <timestamp path> - Directory to write timestamps to." << endl;
-            cout << tabchar << "-hotswap            - Parse reflection info as plugin for hot reload." << endl;
-            cout << tabchar << "-help               - Shows this information." << endl;
-
-            exit(GENERIC_SUCCESS);
+			PrintHelp();
+			exit(GENERIC_SUCCESS);
         }
     }
+}
+
+void CmdParser::PrintHelp() {
+	cout << "RTTR HeaderTool (C) 2023 Illusionist Softworks" << endl << endl;
+	cout << "Supported Arguments: " << endl;
+	cout << tabchar << "-f <filename>       - Source filename to be parsed." << endl;
+	cout << tabchar << "-i <path>           - Include directory to resolve references." << endl;
+	cout << tabchar << "-m <module name>    - Module name for class path generation." << endl;
+	cout << tabchar << "-o <output path>    - Directory to write generated output to." << endl;
+	cout << tabchar << "-t <timestamp path> - Directory to write timestamps to." << endl;
+	cout << tabchar << "-hotswap            - Parse reflection info as plugin for hot reload." << endl;
+	cout << tabchar << "-help               - Shows this information." << endl;
 }

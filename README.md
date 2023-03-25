@@ -18,15 +18,10 @@ This project was created for personal use I figured since I saw nothing on exist
 * Create subdirectories include and lib
 * Copy libclang.lib to clang/lib
 * Copy clang and clang-c folders to clang/include
+* Run build.bat
 
 #### For Linux
-* sudo apt install llvm
-* sudo apt install cmake
-
-#### Then Build
-* cmake -B ./Build
-* cd Build
-* cmake --build . --config Release
+* Use build.sh
 
 ## Command Line Arguments
 ```
@@ -77,7 +72,7 @@ public:
     std::string& GetVectorName();
 	
     // Access=Public is not necessary because all access defaults to Public other options are Private or Protected
-    FUNCTION(Description="Set Vector XYZ",DefaultArgs=[1.0f, 1.0f, 1.0f],Access=Public)
+    FUNCTION(Description="Set Vector XYZ",DefaultArgs=[1.0f, 1.0f, 1.0f],Access=Private)
     void SetXYZ(float x, float y, float z);
 
     // This creates an accessor
@@ -132,7 +127,7 @@ namespace _REFLECTION_VECTOR_GENERATED_H_ {
         (
             rttr::metadata("Description", rttr::string_view("Get Vector Name If Any"))
         )
-        .method("SetXYZ", &Vector3::SetXYZ)
+        .method("SetXYZ", &Vector3::SetXYZ, rttr::registration::private_access)
         (
             rttr::parameter_names("x", "y", "z"), 
             rttr::default_arguments(1.0f,1.0f,1.0f),

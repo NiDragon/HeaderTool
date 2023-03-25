@@ -23,6 +23,7 @@ public:
 	fs::path TimestampDirectory;
 
 	void ParseCommandLine();
+	void PrintHelp();
 
 private:
 	int argc;
