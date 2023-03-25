@@ -18,10 +18,11 @@ This project was created for personal use I figured since I saw nothing on exist
 > * Create subdirectories include and lib
 > * Copy libclang.lib to clang/lib
 > * Copy clang and clang-c folders to clang/include
+
 > For Linux
 > * sudo apt install llvm
 > * sudo apt install cmake
-> 
+
 > cmake -B ./Build
 > cd Build
 > cmake --build . --config Release
