@@ -8,7 +8,7 @@ string GetSetFunction(string& funcName)
 	string name = funcName;
 
 	// lowercase string
-	transform(name.begin(), name.end(), name.begin(), tolower);
+	transform(name.begin(), name.end(), name.begin(), LOWERCASE);
 
 	if(name.substr(0, 3) != "get")
 		return "";
@@ -31,7 +31,7 @@ string ValidatePolicy(ReflectionDefinition& item)
 {
 	string value = item.ReturnPolicy;
 
-	transform(value.begin(), value.end(), value.begin(), tolower);
+	transform(value.begin(), value.end(), value.begin(), LOWERCASE);
 
 	if (item.Type == PROPERTY) 
 	{

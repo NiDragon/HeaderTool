@@ -2,6 +2,7 @@
 
 #include <string>
 #include <cstring>
+#include <cctype>
 #include <vector>
 #include <map>
 #include <iostream>
@@ -16,3 +17,5 @@ namespace fs = std::filesystem;
 #define GENERIC_FILE_ERROR -1
 #define FAILURE_OUTPUT_DIRECTORY -2
 #define GENERIC_PARSER_ERROR -3
+
+#define LOWERCASE static_cast<int(*)(int)>(std::tolower)

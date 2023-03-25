@@ -12,7 +12,7 @@ bool IsNumber(const std::string& s)
 // Likewise not passing value as reference because it might take a const char*
 bool CheckStringIgnoreCase(string key, string value)
 {
-	transform(key.begin(), key.end(), key.begin(), tolower);
+	transform(key.begin(), key.end(), key.begin(), LOWERCASE);
 
 	if(key == value)
 		return true;
@@ -77,7 +77,7 @@ string GetAccessString(ReflectionAccess level)
 
 ReflectionAccess GetAccessLevel(string value)
 {
-	transform(value.begin(), value.end(), value.begin(), tolower);
+	transform(value.begin(), value.end(), value.begin(), LOWERCASE);
 
 	if(value == "public")
 	{
