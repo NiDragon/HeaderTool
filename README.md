@@ -73,7 +73,7 @@ public:
     Vector3();
 
     // This creates a function with a reference return value
-    FUNCTION(Description="Get Vector Name If Any",Policy=AsRef)
+    FUNCTION(Description="Get Vector Name If Any",Policy=AsPointer)
     std::string& GetVectorName();
 	
     // Access=Public is not necessary because all access defaults to Public other options are Private or Protected
@@ -124,6 +124,7 @@ namespace _REFLECTION_VECTOR_GENERATED_H_ {
     {
         rttr::registration::class_<Vector3>("Vector3")
         (
+	    rttr::policy::meth::return_ref_as_ptr,
             rttr::metadata("Description", rttr::string_view("A Three Component Vector"))
         )
         .constructor<>()
