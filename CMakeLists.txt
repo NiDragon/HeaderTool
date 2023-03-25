@@ -46,10 +46,17 @@ target_include_directories(HeaderTool PRIVATE ${SRCROOT}/Private)
 target_include_directories(HeaderTool PUBLIC ${SRCROOT}/Public)
 
 # Dependencies
-find_package(LLVM  REQUIRED CONFIG)
-find_package(Clang REQUIRED CONFIG)
+
+if(UNIX)
+find_package(LLVM REQUIRED)
 
 include_directories(${LLVM_INCLUDE_DIRS})
 include_directories(${CLANG_INCLUDE_DIRS})
 
-target_link_libraries(HeaderTool PRIVATE clangTooling)
+target_link_libraries(HeaderTool PRIVATE -L/usr/lib/llvm-14/lib clang)
+endif()
+
+if(WIN32)
+include_directories("${SRCROOT}/clang/include")
+target_link_libraries(HeaderTool PRIVATE -L/clang/lib libclang)
+endif()
