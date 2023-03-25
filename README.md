@@ -37,7 +37,7 @@ This project was created for personal use I figured since I saw nothing on exist
 * DefaultArgs (Only applies to functions)
 
 ### Usage:
-> HeaderTool -f "Vector.h"
+> HeaderTool -f "Vector.h" -hotswap
 
 ### Example: Vector.h
 ```cpp
