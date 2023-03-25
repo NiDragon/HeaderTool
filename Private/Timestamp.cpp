@@ -70,7 +70,7 @@ void Timestamp::Update()
 
 string Timestamp::GetTimestamp()
 {
-    auto ftime = filesystem::last_write_time(SourceFile).time_since_epoch();
+    auto ftime = fs::last_write_time(SourceFile).time_since_epoch();
 
 	return to_string(ftime.count());
 }
