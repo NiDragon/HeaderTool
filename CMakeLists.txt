@@ -46,7 +46,8 @@ target_include_directories(HeaderTool PRIVATE ${SRCROOT}/Private)
 target_include_directories(HeaderTool PUBLIC ${SRCROOT}/Public)
 
 # Dependencies
-find_package(Clang REQUIRED)
+find_package(LLVM  REQUIRED CONFIG)
+find_package(Clang REQUIRED CONFIG)
 
 include_directories(${LLVM_INCLUDE_DIRS})
 include_directories(${CLANG_INCLUDE_DIRS})
