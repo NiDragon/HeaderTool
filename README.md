@@ -13,20 +13,20 @@ This project was created for personal use I figured since I saw nothing on exist
 * C++17 Compiler Support
 
 ## How To Build
-> #### For Windows
-> * Create clang directory in the root
-> * Create subdirectories include and lib
-> * Copy libclang.lib to clang/lib
-> * Copy clang and clang-c folders to clang/include
+#### For Windows
+* Create clang directory in the root
+* Create subdirectories include and lib
+* Copy libclang.lib to clang/lib
+* Copy clang and clang-c folders to clang/include
 
-> #### For Linux
-> * sudo apt install llvm
-> * sudo apt install cmake
+#### For Linux
+* sudo apt install llvm
+* sudo apt install cmake
 
-> #### Then Build
-> * cmake -B ./Build
-> * cd Build
-> * cmake --build . --config Release
+#### Then Build
+* cmake -B ./Build
+* cd Build
+* cmake --build . --config Release
 
 ## Command Line Arguments
 ```
