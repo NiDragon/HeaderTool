@@ -56,15 +56,15 @@ class Vector3 {
 public:
     Vector3();
 
-	// This creates a function with a reference return value
+    // This creates a function with a reference return value
     FUNCTION(Description="Get Vector Name If Any",Policy=AsRef)
     std::string& GetVectorName();
 	
-	// Access=Public is not nessicary because all access defaults to Public other options are Private or Protected
+    // Access=Public is not necessary because all access defaults to Public other options are Private or Protected
 	FUNCTION(Description="Set Vector XYZ",DefaultArgs=[1.0f, 1.0f, 1.0f],Access=Public)
 	void SetXYZ(float x, float y, float z);
 
-	// This creates an accessor
+    // This creates an accessor
     PROPERTY(Description="Vector3 X Component") 
     const float& GetX();
     void SetX(const float& x);
