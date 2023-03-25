@@ -50,14 +50,14 @@ target_include_directories(HeaderTool PUBLIC ${SRCROOT}/Public)
 if(UNIX)
 find_package(LLVM REQUIRED)
 
-include_directories(${LLVM_INCLUDE_DIRS})
-include_directories(${CLANG_INCLUDE_DIRS})
+target_include_directories(HeaderTool PRIVATE ${LLVM_INCLUDE_DIRS})
+target_include_directories(HeaderTool PRIVATE ${CLANG_INCLUDE_DIRS})
 
 target_link_libraries(HeaderTool PRIVATE -L/usr/lib/llvm-14/lib clang)
 endif()
 
 if(WIN32)
-include_directories(${SRCROOT}/clang/include)
+target_include_directories(HeaderTool PRIVATE ${SRCROOT}/clang/include)
 target_link_directories(HeaderTool PRIVATE ${SRCROOT}/clang/lib)
 target_link_libraries(HeaderTool PRIVATE libclang)
 endif()
