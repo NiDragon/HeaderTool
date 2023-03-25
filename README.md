@@ -36,6 +36,9 @@ This project was created for personal use I figured since I saw nothing on exist
 > Policy=Discard only applies to functions
 * DefaultArgs (Only applies to functions)
 
+### Usage:
+> HeaderTool -f "Vector.h"
+
 ### Example: Vector.h
 ```cpp
 // Define macros for reflection generation
