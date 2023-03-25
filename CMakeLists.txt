@@ -32,8 +32,6 @@ add_executable(HeaderTool ${PRIVATE_INCLUDES} ${PRIVATE_SRCS} ${PUBLIC_INCLUDES}
 # This tool needs C++17 for filesystem 
 set_property(TARGET HeaderTool PROPERTY CXX_STANDARD 17)
 
-UseWin32Resources(HeaderTool)
-
 if(WIN32)
 target_sources(HeaderTool PRIVATE ${SRCROOT}/Private/windows/HeaderTool.rc)
 source_group(Resources FILES ${SRCROOT}/Private/windows/HeaderTool.rc)
