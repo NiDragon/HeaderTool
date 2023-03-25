@@ -3,7 +3,7 @@
 #include "CmdParser.h"
 #include "ClangParser.h"
 #include "Timestamp.h"
-#include "RttrGenerator.h"
+#include "RTTRGenerator.h"
 
 int main(int argc, char** argv)
 {
