@@ -84,7 +84,7 @@ private:
     void ProcessFunctionDecl(CXCursor cursor);
     void ProcessConstructor(CXCursor cursor);
 
-    static CXChildVisitResult ClangParser::Visitor(CXCursor cursor,
+    static CXChildVisitResult Visitor(CXCursor cursor,
         CXCursor parent,
         CXClientData client_data);
 
