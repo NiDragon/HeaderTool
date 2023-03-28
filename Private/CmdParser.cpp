@@ -42,7 +42,7 @@ void CmdParser::ParseCommandLine() {
         {
             if (i + 1 < argc)
             {
-                Module = MakeAbsolute(argv[i + 1]);
+                Module = argv[i + 1];
                 UseClassPath = true;
             }
         }
