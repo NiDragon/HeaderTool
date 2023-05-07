@@ -117,7 +117,7 @@ string MakeAbsolute(string path)
 {
 	fs::path absolutePath(path);
 
-	if (absolutePath.is_absolute())
+	if (!absolutePath.is_absolute())
 	{
 		absolutePath = fs::absolute(absolutePath);
 	}
@@ -127,7 +127,7 @@ string MakeAbsolute(string path)
 
 fs::path& MakeAbsolutePath(fs::path& path)
 {
-	if (path.is_absolute())
+	if (!path.is_absolute())
 	{
 		path = fs::absolute(path);
 	}
