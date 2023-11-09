@@ -90,9 +90,8 @@ ReflectionType IsValidReflectionType(CXString token_text)
 }
 
 // Print the tokens to the console output
-void DbgPrintTokens(CXTranslationUnit tu, CXToken* tokens, unsigned int numTokens)
+void _DbgPrintTokens(CXTranslationUnit tu, CXToken* tokens, unsigned int numTokens)
 {
-#if defined(VERBOSE_LOGGING)
 	// Debug things
 	for (unsigned int i = 0; i < numTokens; i++)
 	{
@@ -105,8 +104,15 @@ void DbgPrintTokens(CXTranslationUnit tu, CXToken* tokens, unsigned int numToken
 	}
 
 	cout << endl;
-#endif
 }
+
+#if !defined(VERBOSE_LOGGING)
+#define DbgPrint(...)
+#define DbgPrintTokens(...)
+#else
+#define DbgPrint printf
+#define DbgPrintTokens _DbgPrintTokens
+#endif
 
 void ClangParser::ProcessMacro(CXCursor cursor)
 {
@@ -137,9 +143,7 @@ void ClangParser::ProcessMacro(CXCursor cursor)
 
 				unsigned int argCount = FindArgumentsCount(cursor, tokens, numTokens);
 
-#if defined(VERBOSE_LOGGING)
-				printf("Macro expansion has %d arguments\n", argCount);
-#endif
+				DbgPrint("Macro expansion has %d arguments\n", argCount);
 
 				CXToken* currentToken = &tokens[2];
 
@@ -224,9 +228,7 @@ void ClangParser::ProcessMacro(CXCursor cursor)
 
 				clang_disposeTokens(this->tu, tokens, numTokens);
 
-#if defined(VERBOSE_LOGGING)
-				printf("Found Valid Macro: %s\n", clang_getCString(name));
-#endif
+				DbgPrint("Found Valid Macro: %s\n", clang_getCString(name));
 
 				this->Definitions.push_back(definition);
 			}
