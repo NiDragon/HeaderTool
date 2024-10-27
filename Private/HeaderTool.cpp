@@ -13,13 +13,6 @@ int main(int argc, char** argv)
     // This function calls exit on error
     CmdParse.ParseCommandLine();
 
-    // If we did not find a source file exit the program
-    if (!fs::exists(CmdParse.SourceFile))
-    {
-        cerr << "No file to parse. (For more info see -help)" << endl;
-        return GENERIC_FILE_ERROR;
-    }
-
     // check if the file we were parse ends in .h does not matter if its hpp
     string source_path = CmdParse.SourceFile.generic_string();
     size_t found = source_path.find_last_of(".h");

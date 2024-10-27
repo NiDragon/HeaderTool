@@ -49,12 +49,6 @@ void CmdParser::ParseCommandLine() {
                     }
                 }
             }
-            
-            if(SourceFile.empty())
-            {
-                cerr << "No file to parse. (For more info see -help)" << endl;
-                exit(GENERIC_FILE_ERROR);
-            }
         }
 
         if (arg == "-i")
@@ -118,6 +112,12 @@ void CmdParser::ParseCommandLine() {
             PrintHelp();
             exit(GENERIC_SUCCESS);
         }
+    }
+    
+    if(SourceFile.empty())
+    {
+        cerr << "No file to parse. (For more info see -help)" << endl;
+        exit(GENERIC_FILE_ERROR);
     }
 }
 
